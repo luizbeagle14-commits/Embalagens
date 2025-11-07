@@ -1,0 +1,194 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Atividade Interativa — Embalagens e Simbologia</title>
+  <style>
+    body{font-family:Inter,system-ui,Arial;line-height:1.45;margin:16px;color:#111;background:#f9fafb}
+    header{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    h1{font-size:1.6rem;margin:0}
+    .card{border:1px solid #ddd;border-radius:10px;padding:16px;margin:12px 0;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:16px}
+    .full{grid-column:1/-1}
+    .btn{display:inline-block;padding:8px 12px;border-radius:6px;background:#0b6;color:#fff;font-weight:600;text-decoration:none;border:none;cursor:pointer}
+    .btn:hover{opacity:.9}
+    .small{font-size:.9rem;color:#444}
+    .symbols{display:flex;flex-wrap:wrap;gap:10px}
+    .symbol{width:86px;height:86px;border:1px dashed #bbb;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;background:#f9f9f9;cursor:grab}
+    .dropzone{min-height:100px;border:2px dashed #cfc;border-radius:6px;padding:8px}
+    textarea{width:100%;min-height:80px;border:1px solid #ccc;border-radius:6px;padding:8px;font-family:inherit}
+    footer{font-size:0.85rem;color:#666;margin-top:18px}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Atividade Interativa — Embalagens e Simbologia</h1>
+  <div style="margin-left:auto;text-align:right">
+    <div class="small">Curso EAD • Professor: Luiz Eduardo Peixoto Borges</div>
+    <div class="small"></div>
+  </div>
+</header>
+
+<section class="card">
+  <h2>Objetivo da atividade</h2>
+  <p class="small">Ao final desta atividade, o aluno deverá compreender as funções das embalagens (primária, secundária, terciária e quartenária), reconhecer símbolos de manuseio, aplicar critérios logísticos e refletir sobre sustentabilidade e eficiência.</p>
+</section>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>Leitura orientada</h3>
+    <p><strong>Embalagem primária:</strong> em contato direto com o produto — protege, conserva e comunica informações obrigatórias.</p>
+    <p><strong>Embalagem secundária:</strong> agrupa unidades primárias, facilitando manuseio, exposição e controle de estoque.</p>
+    <p><strong>Embalagem terciária:</strong> reúne várias embalagens secundárias para transporte e armazenagem segura.</p>
+    <p><strong>Funções principais:</strong> contenção, proteção, informação, logística e marketing.</p>
+    <p class="small">Fonte: Material de aula e slides do curso “Logística de Armazenagem”.</p>
+  </div>
+
+  <aside class="card">
+    <h3>Vídeos complementares</h3>
+    <ul class="small">
+      <li><a href="https://www.youtube.com/watch?v=QWyYT9a9eEE" target="_blank">Embalagens</a></li>
+      <li><a href="https://www.youtube.com/watch?v=yd_DaVRJjJo" target="_blank">Tipos de Embalagens</a></li>
+      <li><a href="https://www.youtube.com/watch?v=hJantiyYdvY" target="_blank">Primária, Secundária e Terciária</a></li>
+    </ul>
+  </aside>
+
+  <div class="card full" id="scenario">
+    <h3>Situação de Aprendizagem</h3>
+    <p>Você foi contratado por uma empresa que fabrica cosméticos artesanais (cremes e sabonetes). A empresa deseja rever seu sistema de embalagens para atender exigências de transporte e marketing sustentável.</p>
+    
+    <p><strong>Responda:</strong></p>
+    <ol>
+      <li>Qual tipo de embalagem primária seria ideal para cosméticos líquidos e sólidos? Justifique considerando segurança e custo.</li>
+      <li>Como você organizaria as embalagens secundárias para o envio em caixas? (ex.: quantas unidades por caixa e tipo de material?)</li>
+      <li>Que tipo de embalagem terciária escolheria para transporte interestadual? (ex.: pallet, filme stretch, container?)</li>
+      <li>Quais símbolos de manuseio e armazenagem deveriam estar impressos nas caixas?</li>
+      <li>Como incluiria aspectos de sustentabilidade nas embalagens?</li>
+    </ol>
+
+    <textarea id="respostaSituacao" placeholder="Digite suas respostas aqui..."></textarea>
+    <button class="btn" id="enviarSituacao">Enviar Respostas</button>
+    <span id="resultadoSituacao" style="margin-left:20px;font-weight:800"></span>
+  </div>
+
+  <div class="card">
+    <h3>Desafio — Simbologia de Armazenagem</h3>
+    <p class="small">Arraste e solte os símbolos na zona correspondente. Depois clique em “Verificar”.</p>
+
+    <div id="symbols" class="symbols">
+      <div class="symbol" draggable="true" data-key="fragile">📦</div>
+      <div class="symbol" draggable="true" data-key="keepdry">☂️</div>
+      <div class="symbol" draggable="true" data-key="thissideup">⬆️</div>
+      <div class="symbol" draggable="true" data-key="recycle">♻️</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px">
+      <div><div class="small">Frágil (quebrável)</div><div class="dropzone" data-accept="fragile"></div></div>
+      <div><div class="small">Manter seco</div><div class="dropzone" data-accept="keepdry"></div></div>
+      <div><div class="small">Este lado para cima</div><div class="dropzone" data-accept="thissideup"></div></div>
+      <div><div class="small">Reciclável</div><div class="dropzone" data-accept="recycle"></div></div>
+    </div>
+
+    <button class="btn" id="verificarSimbolos" style="margin-top:10px;">Verificar</button>
+    <span id="resultadoSimbolos" style="margin-left:10px;font-weight:600"></span>
+  </div>
+
+  <div class="card">
+    <h3>Quiz rápido</h3>
+    <p><strong>1.</strong> Qual embalagem está em contato direto com o produto?</p>
+    <label><input type="radio" name="q1" value="a"> Terciária</label><br>
+    <label><input type="radio" name="q1" value="b"> Primária</label><br>
+    <label><input type="radio" name="q1" value="c"> Secundária</label>
+
+    <p style="margin-top:10px"><strong>2.</strong> Qual o principal objetivo da embalagem terciária?</p>
+    <label><input type="radio" name="q2" value="a"> Promover a venda</label><br>
+    <label><input type="radio" name="q2" value="b"> Facilitar transporte e armazenagem</label><br>
+    <label><input type="radio" name="q2" value="c"> Conservar o produto após aberto</label><br>
+
+    <button class="btn" id="verificarQuiz" style="margin-top:10px;">Verificar Respostas</button>
+    <span id="resultadoQuiz" style="margin-left:10px;font-weight:600"></span>
+  </div>
+
+  <div class="card full">
+    <h3>Feedback e Autoavaliação</h3>
+    <p class="small">Reflita sobre sua aprendizagem e descreva abaixo:</p>
+    <ul class="small">
+      <li>O que aprendeu sobre embalagens e simbologia?</li>
+      <li>Que pontos ainda tem dúvida?</li>
+      <li>Como aplicaria esse conhecimento em um armazém real?</li>
+    </ul>
+
+    <textarea id="feedbackAluno" placeholder="Escreva aqui seu feedback pessoal..."></textarea>
+    <p class="small"><span id="contador">0</span>/800 caracteres</p>
+    <button class="btn" id="salvarFeedback">Salvar Feedback</button>
+    <span id="msgFeedback" style="margin-left:10px;font-weight:600"></span>
+  </div>
+
+</div>
+
+<footer>
+  <p>Referências: Slides “3º Logística de Armazenagem” e vídeos oficiais do curso. Fontes complementares: Portal Logweb, MundoLogística, ISO Graphical Symbols.</p>
+</footer>
+
+<script>
+// Situação
+document.getElementById('enviarSituacao').addEventListener('click', ()=>{
+  const texto = document.getElementById('respostaSituacao').value.trim();
+  if(texto.length<20){document.getElementById('resultadoSituacao').textContent='Escreva pelo menos 20 caracteres.';return;}
+  localStorage.setItem('situacaoEmbalagem',texto);
+  document.getElementById('resultadoSituacao').textContent='Respostas salvas ✓';
+});
+
+// Drag & Drop
+const symbols=document.querySelectorAll('.symbol');
+symbols.forEach(s=>s.addEventListener('dragstart',ev=>ev.dataTransfer.setData('text/plain',s.dataset.key)));
+const drops=document.querySelectorAll('.dropzone');
+drops.forEach(d=>{
+  d.addEventListener('dragover',ev=>{ev.preventDefault();d.style.background='#f0fff0'});
+  d.addEventListener('dragleave',()=>d.style.background='');
+  d.addEventListener('drop',ev=>{
+    ev.preventDefault();
+    d.style.background='';
+    const key=ev.dataTransfer.getData('text/plain');
+    const el=document.querySelector(`.symbol[data-key="${key}"]`);
+    if(el){d.innerHTML='';d.appendChild(el);el.style.cursor='default';el.draggable=false;}
+  });
+});
+document.getElementById('verificarSimbolos').addEventListener('click',()=>{
+  let acertos=0;
+  drops.forEach(d=>{
+    const a=d.dataset.accept;
+    const c=d.querySelector('.symbol');
+    if(c && c.dataset.key===a) acertos++;
+  });
+  document.getElementById('resultadoSimbolos').textContent=`Acertos: ${acertos}/${drops.length}`;
+});
+
+// Quiz
+document.getElementById('verificarQuiz').addEventListener('click',()=>{
+  let pontos=0;
+  const q1=document.querySelector('input[name="q1"]:checked');
+  const q2=document.querySelector('input[name="q2"]:checked');
+  if(q1&&q1.value==='b')pontos++;
+  if(q2&&q2.value==='b')pontos++;
+  document.getElementById('resultadoQuiz').textContent=`Pontuação: ${pontos}/2`;
+});
+
+// Feedback
+const feedback=document.getElementById('feedbackAluno');
+feedback.addEventListener('input',()=>{
+  document.getElementById('contador').textContent=feedback.value.length;
+});
+document.getElementById('salvarFeedback').addEventListener('click',()=>{
+  const txt=feedback.value.trim();
+  if(txt.length<30){document.getElementById('msgFeedback').textContent='Escreva pelo menos 30 caracteres.';return;}
+  localStorage.setItem('feedbackEmbalagem',txt);
+  document.getElementById('msgFeedback').textContent='Feedback salvo ✓';
+});
+</script>
+
+</body>
+</html>
